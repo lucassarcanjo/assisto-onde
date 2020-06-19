@@ -1,3 +1,4 @@
-import App from "./App/App";
+import Searchbar from "./Searchbar";
+import Footer from "./Footer";
 
-export { App };
+export { Searchbar, Footer };
