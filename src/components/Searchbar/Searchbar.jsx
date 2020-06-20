@@ -8,7 +8,6 @@ const Searchbar = () => {
       <SearchBox>
         <SearchIcon />
         <SearchInput placeholder="Digite aqui seu filme/série favorito"></SearchInput>
-        ;
       </SearchBox>
     </>
   );
