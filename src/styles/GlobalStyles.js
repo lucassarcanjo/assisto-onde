@@ -13,6 +13,7 @@ export default createGlobalStyle`
     --tertiary: #FFD037;
     --quaternary: #E8E8E8;
     
+    --semi-transparent: rgba(232, 232, 232, 0.3);
     --scrollbarBG: #CFD8DC;
     --thumbBG: #90A4AE;
 

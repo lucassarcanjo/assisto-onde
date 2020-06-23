@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 
 import AutoSuggest from "react-autosuggest";
+import BounceLoader from "react-spinners/BounceLoader";
 
-// import { SearchInput, SearchBox, SearchIcon } from "./Searchbar.styled";
+import {
+  SearchInput,
+  SearchSuggestions,
+  SearchBox,
+  SearchIcon,
+} from "./Searchbar.styled";
 import api from "../../services/api";
 
 import "./Searchbar.scss";
@@ -23,7 +29,6 @@ const Searchbar = () => {
   const loadSuggestions = (value) => {
     setIsLoading(true);
 
-    // request
     api
       .get("content/titles/pt_BR/popular", {
         params: {
@@ -54,22 +59,36 @@ const Searchbar = () => {
     onChange: handleChange,
   };
 
-  const status = isLoading ? "Loading..." : "Digite para receber sugestões";
+  const renderInputComponent = (inputProps) => <SearchInput {...inputProps} />;
+
+  const renderSuggestionsContainer = ({ containerProps, children }) => {
+    return (
+      <SearchSuggestions
+        {...containerProps}
+        isLoading={isLoading}
+        suggestions={suggestions}
+      >
+        <BounceLoader size={70} color={"#E8E8E8"} loading={isLoading} />
+        {children}
+      </SearchSuggestions>
+    );
+  };
 
   return (
-    <>
-      <div>
-        <strong>Status: </strong> {status}
-      </div>
+    <SearchBox>
+      <SearchIcon />
       <AutoSuggest
         suggestions={suggestions}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={onSuggestionsClearRequested}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
+        renderInputComponent={renderInputComponent}
+        renderSuggestionsContainer={renderSuggestionsContainer}
         inputProps={inputProps}
+        highlightFirstSuggestion={true}
       />
-    </>
+    </SearchBox>
   );
 };
 
