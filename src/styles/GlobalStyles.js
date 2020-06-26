@@ -8,7 +8,8 @@ export default createGlobalStyle`
   }
 
   :root {
-    --primary: #363640;
+    /* --primary: #363640; */
+    --primary: #000;
     --secondary: #F24849;
     --tertiary: #FFD037;
     --quaternary: #E8E8E8;
@@ -30,6 +31,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     scrollbar-width: thin;
     scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+    color: var(--quaternary);
 
     ::-webkit-scrollbar {
       width: 11px;
