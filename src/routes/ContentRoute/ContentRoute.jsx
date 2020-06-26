@@ -1,12 +1,13 @@
 import React from "react";
 
 import ContentHeader from "../../components/ContentHeader";
+import ContentCard from "../../components/ContentCard";
 
 const ContentRoute = () => {
   return (
     <div>
       <ContentHeader />
-      <h1>Movie / TV Show Route testing</h1>
+      <ContentCard />
     </div>
   );
 };
